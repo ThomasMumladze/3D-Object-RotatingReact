@@ -1,0 +1,41 @@
+.card {
+    background-color: dodgerblue;
+    border: solid 1px dodgerblue;
+}
+
+.card .imageWrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 180px;
+    object-fit: cover;
+    width: 200px;
+
+    .viewImage {
+        border-radius: 10px;
+        box-shadow: 0 0 6px 0 #222;
+        height: 122%;
+        position: absolute;
+        width: 122%;
+    }
+
+    .normalView {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+.card .imageWrapper img {
+    object-fit: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.card h1 {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+}
