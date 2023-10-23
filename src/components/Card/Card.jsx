@@ -1,3 +1,4 @@
+import { Controller } from "react-bootstrap-icons";
 import "./styles.scss";
 
 import React, { useEffect, useRef } from "react";
@@ -9,10 +10,14 @@ export default function Card({ props, handleImageView, isImageView }) {
 
     const transforms = (x, y, el) => {
         const card = el.getBoundingClientRect();
-        const calcX = -(y - card.y - card.height / 2) / constrain;
-        const calcY = (x - card.x - card.width / 2) / constrain;
+        const calcPosition = {
+            calcX: -(y - card.y - card.height / 2) / constrain,
+            calcY: (x - card.x - card.width / 2) / constrain,
+        };
 
-        return "perspective(183px) " + "rotateX(" + calcX + "deg) " + "rotateY(" + calcY + "deg)";
+        return (
+            "perspective(183px) " + "rotateX(" + calcPosition.calcX + "deg) " + "rotateY(" + calcPosition.calcY + "deg)"
+        );
     };
 
     const transformElement = (el, xyEl) => {
@@ -23,7 +28,8 @@ export default function Card({ props, handleImageView, isImageView }) {
         const layer = cardLayer.current;
 
         const handleMouseMove = (e) => {
-            layer.style.transition = ".0s ";
+            layer.style.transition = ".0s ease-in-out";
+
             const xy = [e.clientX, e.clientY];
             const position = xy.concat([layer]);
 
@@ -47,11 +53,16 @@ export default function Card({ props, handleImageView, isImageView }) {
     }, []);
 
     return (
-        <div className="card" ref={cardLayer}>
+        <div
+            className="card"
+            ref={cardLayer}
+            style={{ borderBottom: isImageView === id ? "solid 1px black" : "", zIndex: isImageView === id ? 1 : 0 }}
+        >
             <div className="imageWrapper" onClick={() => handleImageView(id)}>
                 <img src={img} alt="..." className={isImageView === id ? "viewImage" : "normalView"} />
             </div>
-            {title}
+
+            <div>{title}</div>
         </div>
     );
 }
