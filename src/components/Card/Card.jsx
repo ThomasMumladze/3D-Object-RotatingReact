@@ -6,7 +6,7 @@ export default function Card({ props, handleImageView, isImageView }) {
     const { id, img, title } = props;
     const constrain = 14;
     const cardLayer = useRef(null);
-    console.log(isImageView);
+
     const transforms = (x, y, el) => {
         const card = el.getBoundingClientRect();
         const calcX = -(y - card.y - card.height / 2) / constrain;
