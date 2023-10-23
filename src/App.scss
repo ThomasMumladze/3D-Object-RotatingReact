@@ -1,0 +1,46 @@
+.container {
+    margin: 76px auto;
+    width: 1200px;
+}
+
+.container-head {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    .head-line {
+        background-color: #222;
+        height: 1px;
+        margin: 0 25px;
+        width: 55%;
+    }
+}
+
+.card-list {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 13px;
+}
+
+.container .slider-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin-top: 27px;
+    width: 100%;
+
+    button {
+        border-radius: 5px;
+        margin: 0 35px;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #f7f6fe;
+        }
+
+        svg {
+            transition: 0.2s ease-in-out;
+        }
+    }
+}
