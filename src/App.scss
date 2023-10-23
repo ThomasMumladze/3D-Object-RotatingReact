@@ -1,12 +1,13 @@
 .container {
     margin: 76px auto;
-    width: 1200px;
+    max-width: 1200px;
 }
 
 .container-head {
     align-items: center;
     display: flex;
     justify-content: flex-start;
+
     .head-line {
         background-color: #222;
         height: 1px;
